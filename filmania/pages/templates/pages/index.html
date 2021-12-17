@@ -1,0 +1,74 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+     <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home container" id="home">
+                <div class="swiper home-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- HOME SLIDER 1 -->
+                        <section class="swiper-slide">
+                            <div class="home__content grid">
+                                <div class="home__group">
+                                    <img src="static/img/magda.jpg" alt="" class="home__img">
+                                </div>
+
+                                <div class="home__data">
+                                    <h3 class="home__subtitle">#1 Magda Gessler schudła :o</h3>
+                                    <h1 class="home__title">LUDZIE SĄ W SZOKU!</h1>
+                                    <p class="home__description">Magda Gessler schudła 1kg. Ludzie są w szoku. Nikt nie wie jak tego dokonała...
+                                    </p>
+
+                                    <div class="home__buttons">
+                                        <a href="#" class="button--link button--flex">Czytaj dalej <i class='bx bx-right-arrow-alt button__icon'></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- HOME SLIDER 2 -->
+                        <section class="swiper-slide">
+                            <div class="home__content grid">
+                                <div class="home__group">
+                                    <img src="static/img/mati.jpg" alt="" class="home__img">
+                                    <div class="home__indicator"></div>
+                                </div>
+
+                                <div class="home__data">
+                                    <h3 class="home__subtitle">#2 Ksiądz Mateusz</h3>
+                                    <h1 class="home__title">Ksiądz Mati to fake!</h1>
+                                    <p class="home__description">Artur Żmijewski wcale nie jest księdzem. Sekret o którym się nie mówi głośno...
+                                    </p>
+
+                                    <div class="home__buttons">
+                                        <a href="#" class="button--link button--flex">Czytaj dalej <i class='bx bx-right-arrow-alt button__icon'></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- HOME SLIDER 3 -->
+                        <section class="swiper-slide">
+                            <div class="home__content grid">
+                                <div class="home__group">
+                                    <img src="static/img/hanna.jpg" alt="" class="home__img">
+                                    <div class="home__indicator"></div>
+                                </div>
+
+                                <div class="home__data">
+                                    <h3 class="home__subtitle">#3 Sekret Hanny Montany</h3>
+                                    <h1 class="home__title">Podwója tożsamość piosenkarki</h1>
+                                    <p class="home__description">Hannah Montana to tak naprawdę Miley Cyrus...
+                                    </p>
+
+                                    <div class="home__buttons">
+                                        <a href="#" class="button--link button--flex">Czytaj dalej <i class='bx bx-right-arrow-alt button__icon'></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+     </main>
+{% endblock content %}
