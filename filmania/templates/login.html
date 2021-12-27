@@ -1,22 +1,31 @@
 {% extends "base.html" %}
 
 {%block content%}
+    <main class="main">
+            <section class="section newsletter">
+                <div class="newsletter__container container">
+                <div class="filser__content">
+                <h1 class="section__title">Zaloguj się</h1>
+                    <form method="post">{% csrf_token %}
+                        <div style="text-align:center;">
+                        <h3>Nazwa użytkownika</h3> <input type="text" name="username"/>
+                        <br><br>
+                        <h3>Hasło</h3> <input type="password" name="password"/>
+                        <br><br>
+                        <input type="submit" value="Zaloguj" class="button button--ghost">
 
-<form method="post">{% csrf_token %}
-
-    <input type="text" name="username"/>
-    <input type="password" name="password"/>
-  
-<input type="submit" value="logowanie ">
-
-                        <button class="button trick__button">
-                            <i class='bx bx-log-in-circle trick__icon'></i>
-                        </button>
-
-{% for message in messages%}
-<p id="">{{message}}</p>
-{% endfor %}
-
-
-  
-{% endblock %}
+                        {% for message in messages%}
+                        <p id="">{{message}}</p>
+                        {% endfor %}
+                        </div>
+                    </form>
+                </div>
+                </div>
+            <br>
+            <div style="text-align:center;">
+            <h4 class="newsletter__description">Nie masz jeszcze konta? Załóż je za darmo!</h4>
+                        <a href="/accounts/" class="button button--ghost">Rejestracja</a>
+            </div>
+            </section>
+    </main>
+{% endblock content %}

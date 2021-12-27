@@ -1,23 +1,32 @@
 {% extends "base.html" %}
 
 {%block content%}
+    <main class="main">
+            <section class="section newsletter">
+                <div class="newsletter__container container">
+                <div class="filser__content">
 
-<form method="post">{% csrf_token %}
+                <form method="post">{% csrf_token %}
 
-    {{ form.username.label }}
-    {{form.username}}
-    
-
-    {{form.email.label}}
-    {{form.email}}
-    
-    {{form.password1.label}}
-    {{form.password1}}
-
-    {{form.password2.label}}
-    {{form.password2}}
-   <input type="submit" value="rejestracja ">
+                <h3>Nazwa użytkownika*</h3>
+                {{form.username}}
 
 
-   {{form.errors}}
+                <h3>Adres Email</h3>
+                {{form.email}}
+
+                <h3>Hasło*</h3>
+                {{form.password1}}
+
+                <h3>Powtórz hasło*</h3>
+                {{form.password2}}
+                <br><br>
+                <input type="submit" value="Zarejestruj" class="button button--ghost">
+
+                </form>
+                </div>
+                    <h4>*Pola z gwiazdką są wymagane</h4>
+                </div>
+            </section>
+    </main>
 {% endblock %}
