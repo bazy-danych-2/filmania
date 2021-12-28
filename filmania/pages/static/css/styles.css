@@ -796,10 +796,10 @@ button{
   }
 
   .filser__container{
-    gap: 3.5rem;
+    gap: 1.5rem;
   }
   .filser__content{
-    border-radius: 1.5rem;
+    border-radius: 3rem;
   }
   .filser__img{
     width: 110px;
@@ -807,6 +807,66 @@ button{
   .filser__title{
     font-size: var(--h3-font-size);
   }
+  /* --------------------for movies.html---------------------*/
+
+.m_filser__content{
+  position: relative;
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 1.5rem 0 1rem 2rem;
+  text-align: left;
+  overflow: hidden;
+  margin: 0px 10rem 3rem 10rem;
+}
+
+.m_filser__img{
+  width: 90px;
+  transition: .3s;
+  margin-left: 3rem;
+}
+
+.m_filser__subtitle,
+.m_filser__price{
+  display: block;
+
+}
+
+.m_filser__subtitle{
+  font-size: var(--smaller-font-size);
+  margin-bottom: var(--mb-0-5);
+
+}
+
+.m_filser__title,
+.m_filser__price{
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  font-size: var(--normal-font-size);
+
+}
+
+.m_filser__button{
+  display: inline-flex;
+  padding: .5rem;
+  border-radius: .25rem .25rem .75rem .25rem;
+  position: absolute;
+  right: -3rem;
+  bottom: 0;
+}
+
+.m_filser__icon{
+  font-size: 1.25rem;
+  color: var(--title-color);
+}
+
+.m_filser__content:hover .filser__img{
+  transform: translateY(-.5rem);
+}
+
+.m_filser__content:hover .filser__button{
+  right: 0;
+}
+  /* endfor */
 
   .discount__container{
     column-gap: 7rem;
@@ -831,7 +891,7 @@ button{
   .footer__copy{
     margin-top: 6rem;
   }
-}
+
 
 @media screen and (min-width: 1200px){
   .home__img{
@@ -840,4 +900,5 @@ button{
   .swiper-pagination{
     margin-top: var(--mb-2-5);
   }
+}
 }
