@@ -50,22 +50,19 @@
 {% block content %}
     <main class="main">
          <section class="section filser" id="filmy">
-                <h2 class="section__title">Baza filmów!</h2>
+                <h2 class="section__title"> {{movie.title}}</h2>
 
-                {% for movie in movies %}
-                <a href="details/{{movie.id}}">
-                <div class="filser__container container  ">
-                    <div class="filser__content">
-                        <img src="{{movie.model_img.url}}" alt="" class="filser__img">
-                        <h3 class="filser__title">{{movie.title}}</h3>
-                        <span class="filser__subtitle">{{movie.short_desc}}</span>
-                        <span class="filser__price"></span>
-                        <button class="button filser__button">
-                            <a href="{% url 'final' %}"><i class='bx bx-log-in-circle filser__icon'></i></a>
-                        </button>
-                    </div></a>
-
-                {% endfor %} 
+                
+                <div>
+                   
+                  <img   src="{{movie.model_img.url}}" />
+                    {{movie.content}}
+                    {{movie.director}}
+                    {{movie.scenariusz}}
+                    {{movie.gatunek}}
+                    {{movie.krej}}
+                    {{movie.data_premiery}}
+                </div>
                    
 
                     <div class="home__buttons" id="next">

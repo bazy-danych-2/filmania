@@ -56,3 +56,13 @@ def show_all_movies(request):
     }
 
     return render(request,"movies/all.html",context)
+
+def movie_details(request, id):
+
+    movie = Movie.objects.get(pk=id)
+    context={
+        'movie': movie
+    }
+
+
+    return render(request,"movies/details.html",context)
