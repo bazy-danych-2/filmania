@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 
 class Movie(models.Model):
     content = models.TextField()
-    model_img = models.ImageField(upload_to='movies_photos', blank=True)
+    short_desc = models.CharField(max_length=255, null=False, blank=False, default="")
+    model_img = models.ImageField(upload_to='movies_photos', blank=False)
     reated = models.ManyToManyField(User, default=None, related_name='oceniony', blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)

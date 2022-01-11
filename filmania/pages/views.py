@@ -6,9 +6,7 @@ class Index(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'pages/index.html')
 
-class Movies(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'pages/movies.html')
+
 
 class Final(View):
     def get(self, request, *args, **kwargs):

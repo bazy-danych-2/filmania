@@ -46,3 +46,13 @@ def update_movie(request,id):
     }
 
     return render(request,"movies/update.html",context)
+
+def show_all_movies(request):
+
+    movies = Movie.objects.all()
+    context={
+        'movies': movies
+
+    }
+
+    return render(request,"movies/all.html",context)

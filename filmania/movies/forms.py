@@ -10,7 +10,7 @@ class MovieForm (forms.ModelForm):
 
      class Meta:
         model = Movie
-        fields = ['title', 'content', 'model_img', 'director', 'scenariusz', 
+        fields = ['title', 'content','short_desc', 'model_img', 'director', 'scenariusz', 
         'gatunek', 'kraj', 'data_premiery'
         ]
         widgets = {
@@ -21,7 +21,7 @@ class MovieForm (forms.ModelForm):
 class UpdateMovieForm(forms.ModelForm):
    class Meta:
         model = Movie
-        fields = ['title', 'content', 'model_img', 'director', 'scenariusz', 
+        fields = ['title', 'content','short_desc', 'model_img', 'director', 'scenariusz', 
         'gatunek', 'kraj', 'data_premiery'
         ]
         widgets = {
