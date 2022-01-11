@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== BOXICONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="static/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+         <link rel="stylesheet" type="text/css" href="static/css/styles_movies.css">
+    <title>FilMania</title>
+</head>
+<body>
+<header class="header" id="header">
+            <nav class="nav container">
+                <a href="{% url 'index' %}" class="nav__logo">
+                    FilMania
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="{% url 'index' %}" class="nav__link active-link">Home</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="{% url 'movies' %}" class="nav__link">Filmy</a>
+                        </li>
+
+                        <a href="/accounts/login" class="button button--ghost">Logowanie</a>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                    </div>
+
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+
+            </nav>
+        </header>
+{% block content %}
+    <main class="main">
+         <section class="section filser" id="filmy">
+                <h2 class="section__title">Spiderman: Bez drogi do domu</h2>
+
+                <div class="filser__container container  ">
+                    <div class="filser__content">
+                        <img src="/static/img/spider.jpg" alt="" class="filser__img">
+                        <h3 class="filser__title">Kiedy cały świat dowiaduje się, że pod maską Spider Mana skrywa się Peter Parker, superbohater decyduje się zwrócić o pomoc do Doktora Strange'a.</h3>
+                        <span class="filser__price"></span>
+                    </div>
+            </section>
+    </main>
+     <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="static/js/scrollreveal.min.js"></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="static/js/swiper-bundle.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="static/js/main.js"></script>
+{% endblock content %}
+{% include 'pages/footer.html' %}
+</body>
+</html>
