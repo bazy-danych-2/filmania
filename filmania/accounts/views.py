@@ -31,7 +31,7 @@ def viev_login(request):
 
         if user is not None:
             login(request,user)
-            return redirect(hello_login)
+            return redirect(user_panel)
         else:
             messages.info(request,'Username or password is incorrect')
             return  render(request,"login.html",context)
@@ -41,7 +41,7 @@ def viev_login(request):
 
     return  render(request,"login.html",context)
 
-def hello_login(request):
+def user_panel(request):
     return render(request,"hello.html",{} )
 
 
