@@ -2,7 +2,10 @@ from django.forms.fields import NullBooleanField
 from django.shortcuts import render
 
 from .models import Movie
+from django.contrib.auth.models import User
 from .forms import MovieForm, UpdateMovieForm
+from comments.models import Comment, Like
+from comments.forms import CommentForm
 
 # Create your views here.
 
@@ -59,9 +62,20 @@ def show_all_movies(request):
 
 def movie_details(request, id):
 
+    c_form = CommentForm(request.POST or None)
     movie = Movie.objects.get(pk=id)
+    
+    if c_form.is_valid():
+        instance = c_form.save(commit=False)
+        instance.user = request.user
+        instance.movie = Movie.objects.get(id=request.POST.get('movie_id'))
+        instance.save()
+        c_form = CommentForm()
+        
+        
     context={
-        'movie': movie
+        'movie': movie,
+        'c_form': c_form,
     }
 
 

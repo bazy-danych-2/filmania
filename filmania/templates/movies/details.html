@@ -71,6 +71,16 @@
 
                 </div>
             </section>
+            
+
+            <!-- Dodawanie komentarzu -->
+            <form action="" method='POST'>{% csrf_token %}
+                <input type='hidden' name='movie_id' value={{movie.id}}>
+                    {{c_form}}
+                <button type='submit'>comment</button>
+            </form>
+
+
     </main>
      <!--=============== SCROLL UP ===============-->
         <a href="#" class="scrollup" id="scroll-up">
