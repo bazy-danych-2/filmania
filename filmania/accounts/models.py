@@ -8,7 +8,7 @@ from movies.models import Movie
 
 class User_info(models.Model):
    user =  OneToOneField(User, on_delete=CASCADE)
-   ulubione_filmy = ManyToManyField(Movie)
+   ulubione_filmy = ManyToManyField(Movie, blank=True, null=True)
 
    def __str__(self):
-       return f"{self.user.name} - {self.pk}"
+       return f"{self.user.username} - {self.pk}"
