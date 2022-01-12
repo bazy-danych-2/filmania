@@ -8,7 +8,6 @@ class Movie(models.Model):
     content = models.TextField()
     short_desc = models.CharField(max_length=255, null=False, blank=False, default="")
     model_img = models.ImageField(upload_to='movies_photos', blank=False)
-    reated = models.ManyToManyField(User, default=None, related_name='oceniony', blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')

@@ -2,6 +2,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from .forms import  CreateUserForm
+from movies.models import Movie
+from star_ratings.models import UserRating
 
 def register(request):
     form = CreateUserForm(request.POST)
