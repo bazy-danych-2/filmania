@@ -1,5 +1,5 @@
 from django.forms.fields import NullBooleanField
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .models import Movie
 from django.contrib.auth.models import User
@@ -62,6 +62,7 @@ def show_all_movies(request):
 
 def movie_details(request, id):
 
+    comments = Comment.objects.all()
     c_form = CommentForm(request.POST or None)
     movie = Movie.objects.get(pk=id)
     
@@ -76,6 +77,7 @@ def movie_details(request, id):
     context={
         'movie': movie,
         'c_form': c_form,
+        'comments': comments,
     }
 
 

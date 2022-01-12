@@ -71,9 +71,16 @@
 
                 </div>
             </section>
-            
 
-            <!-- Dodawanie komentarzu -->
+            <!-- Wypisanie komentarzy do filmu -->
+            <div>
+                {% for obj in comments %}
+                    {% if movie.id == obj.movie.id %}
+                        <p>{{obj.body}}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <!-- Dodawanie komentarzy -->
             <form action="" method='POST'>{% csrf_token %}
                 <input type='hidden' name='movie_id' value={{movie.id}}>
                     {{c_form}}
