@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.fields import GenericRelation
+from star_ratings.models import Rating
+
 
 # Create your models here.
 
@@ -19,6 +22,7 @@ class Movie(models.Model):
     gatunek = models.CharField(blank=True, null=True, max_length=50)
     kraj = models.CharField(blank=True, null=True, max_length=50)
     data_premiery = models.DateField(null=True, blank=True)
+    ratings = GenericRelation(Rating, related_query_name='rating')
 
     
     class Meta:

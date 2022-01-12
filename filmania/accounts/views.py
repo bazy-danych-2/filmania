@@ -4,12 +4,21 @@ from django.shortcuts import redirect, render
 from .forms import  CreateUserForm
 from movies.models import Movie
 from star_ratings.models import UserRating
+from .models import User_info
 
 def register(request):
     form = CreateUserForm(request.POST)
     if form.is_valid():
         email = form.cleaned_data.get("email")
-        form.save()
+
+        user = form.save()
+
+        user_inf = User_info(user = user)
+        user_inf.save()
+
+        login(request, user)
+
+
 
     context={
         'form':form
@@ -44,6 +53,9 @@ def viev_login(request):
     return  render(request,"login.html",context)
 
 def user_panel(request):
+    user = request.user
+
+
     return render(request,"hello.html",{} )
 
 
