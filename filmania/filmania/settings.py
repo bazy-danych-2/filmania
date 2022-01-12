@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['192.168.1.21','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+
     'pages',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'star_ratings',
 
     #nasze
     'movies',
@@ -67,9 +70,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
+]
+TEMPLATE_CONTEXT_PROCESSORS =[
+
+    {
+        'django.core.context_processors.request',
+    }
 ]
 
 WSGI_APPLICATION = 'filmania.wsgi.application'
@@ -141,3 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+#do ratingów
+
+STAR_RATINGS_RANGE = 10

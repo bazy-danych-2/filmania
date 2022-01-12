@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('final/', Final.as_view(), name='final'),
-    path('movies/',include('movies.urls') )
+    path('movies/',include('movies.urls') ),
+    path('ratings/', include('star_ratings.urls',namespace='ratings')),
 ]
 
 
