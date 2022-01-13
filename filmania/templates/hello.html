@@ -1,27 +1,8 @@
 {% include 'pages/base.html' %}
-<!DOCTYPE html>
-<html lang="pl-PL">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!--=============== BOXICONS ===============-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-        <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
-
-        <!--=============== CSS ===============-->
-         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <title>FilMania</title>
-</head>
-<body>
-
 
 {% block content %}
 
-
+{% load static %}
     <main class="main">
          <section class="section filser" id="filmy">
             <h1> Witaj {{request.user.username}}</h1>
@@ -54,6 +35,4 @@
         <!--=============== MAIN JS ===============-->
         <script src="{% static 'js/main.js' %}"></script>
 {% endblock content %}
-{% include 'pages/footer.html' %}
-</body>
-</html>
+
