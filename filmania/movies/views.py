@@ -1,6 +1,8 @@
 from django.forms.fields import NullBooleanField
 from django.shortcuts import redirect, render
 
+from accounts.models import User_info
+
 from .models import Movie
 from django.contrib.auth.models import User
 from .forms import MovieForm, UpdateMovieForm
@@ -65,7 +67,15 @@ def movie_details(request, id):
     comments = Comment.objects.all()
     c_form = CommentForm(request.POST or None)
     movie = Movie.objects.get(pk=id)
+    user = request.user
+    user_inf = User_info.objects.get(user = user)
+    is_fav = False
     
+    if movie not in user_inf.ulubione_filmy.all():
+        is_fav = True
+
+    
+
     if c_form.is_valid():
         instance = c_form.save(commit=False)
         instance.user = request.user
@@ -78,6 +88,7 @@ def movie_details(request, id):
         'movie': movie,
         'c_form': c_form,
         'comments': comments,
+        'is_fav': is_fav,
     }
 
 

@@ -56,14 +56,18 @@ def viev_login(request):
 def add_to_fav(request):
 
     user = request.user
-    print(request.POST)
+    
     id = request.POST['id']
     movie = Movie.objects.get(pk = id)
 
     user_inf = User_info.objects.get(user = user)
 
-    user_inf.ulubione_filmy.add(movie)
-    user_inf.save()
+    if movie not in user_inf.ulubione_filmy.all():
+        user_inf.ulubione_filmy.add(movie)
+        user_inf.save()
+    else:
+        user_inf.ulubione_filmy.remove(movie)
+        user_inf.save()
 
 
 
