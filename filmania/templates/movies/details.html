@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% load static %}
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,10 +11,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
         <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="static/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
 
         <!--=============== CSS ===============-->
-         <link rel="stylesheet" type="text/css" href="static/css/styles_movies.css">
+         <link rel="stylesheet" type="text/css" href="{% static 'css/styles_movies.css' %}">
     <title>FilMania</title>
 </head>
 <body>
@@ -27,11 +27,11 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="#filmy" class="nav__link">Filmy</a>
+                            <a href="#filmy" class="nav__link">Film</a>
                         </li>
 
                         <li class="nav__item">
-                            <a href="#next" class="nav__link">Następna strona</a>
+                            <a href="#komentarze" class="nav__link">Komentarze</a>
                         </li>
 
                         <a href="/accounts/login" class="button button--ghost">Logowanie</a>
@@ -62,45 +62,43 @@
                 <h2 class="section__title"> {{movie.title}}</h2>
 
                 
-                <div>
-                   
-                  <img   src="{{movie.model_img.url}}" />
-                  {% if is_fav %}
-                  <button id='fav' onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
-                  {% else %}
-                  <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
-                 {% endif %}
-                    {{movie.content}}
-                    {{movie.director}}
-                    {{movie.scenariusz}}
-                    {{movie.gatunek}}
-                    {{movie.kraj}}
-                    {{movie.data_premiery}}
+                <div class="filser__container container  ">
+                    <div class="filser__content">
+                        <img src="{{movie.model_img.url}}" alt="" class="filser__img">
+                        {% if is_fav %}
+                        <button id='fav' onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
+                        {% else %}
+                        <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
+                        {% endif %}
+                        <div class="akapit">{{movie.content}} <br />
+                        <p>Reżyseria: {{movie.director}}</p>
+                        <p>Scenariusz: {{movie.scenariusz}}</p>
+                        <p>Gatunek: {{movie.gatunek}}</p>
+                        <p>Produkcja: {{movie.kraj}}</p>
+                            <p>Premiera: {{movie.data_premiery}}</p></div>
                     {% ratings movie %}
-                </div>
-                   
-
-                    <div class="home__buttons" id="next">
-                        <a href=# class="button--link button--flex">Następna strona <i class='bx bx-right-arrow-alt button__icon'></i></a>
                     </div>
-
                 </div>
             </section>
 
-            <!-- Wypisanie komentarzy do filmu -->
-            <div>
+            </section>
+            <section class="home container" id="komentarze">
+            <!-- Dodawanie komentarzy -->
+            <form action="" method='POST'>{% csrf_token %}
+                <input type='hidden' name='movie_id' value={{movie.id}}>
+                    {{c_form}}
+                <button type='submit' class="button button--ghostt">comment</button>
+            </form>
+                <!-- Wypisanie komentarzy do filmu -->
+                    <div>
                 {% for obj in comments %}
                     {% if movie.id == obj.movie.id %}
                         <p>{{obj.body}}</p>
                     {% endif %}
                 {% endfor %}
             </div>
-            <!-- Dodawanie komentarzy -->
-            <form action="" method='POST'>{% csrf_token %}
-                <input type='hidden' name='movie_id' value={{movie.id}}>
-                    {{c_form}}
-                <button type='submit'>comment</button>
-            </form>
+                </div>
+         </section>
 
 
     </main>

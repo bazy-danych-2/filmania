@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,10 +10,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
         <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="static/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
 
         <!--=============== CSS ===============-->
-         <link rel="stylesheet" type="text/css" href="static/css/styles_movies.css">
+         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <title>FilMania</title>
 </head>
 <body>
@@ -51,26 +52,16 @@
     <main class="main">
          <section class="section filser" id="filmy">
                 <h2 class="section__title">Baza filmów!</h2>
-            
+                <div class="filser__container container grid">
                 {% for movie in movies %}
-                <a href="details/{{movie.id}}">
-                <div class="filser__container container  ">
+                    <a href="details/{{movie.id}}">
                     <div class="filser__content">
                         <img src="{{movie.model_img.url}}" alt="" class="filser__img">
                         <h3 class="filser__title">{{movie.title}}</h3>
-                        <span class="filser__subtitle">{{movie.short_desc}}</span>
-                        <span class="filser__price"></span>
-                        <button class="button filser__button">
-                            <a href="{% url 'final' %}"><i class='bx bx-log-in-circle filser__icon'></i></a>
-                        </button>
+                        <h2 class="filser__subtitle">{{movie.short_desc}}</h2>
                     </div></a>
 
-                {% endfor %} 
-                   
-
-                    <div class="home__buttons" id="next">
-                        <a href=# class="button--link button--flex">Następna strona <i class='bx bx-right-arrow-alt button__icon'></i></a>
-                    </div>
+                {% endfor %}
 
                 </div>
             </section>
@@ -81,13 +72,13 @@
         </a>
 
         <!--=============== SCROLL REVEAL ===============-->
-        <script src="static/js/scrollreveal.min.js"></script>
+        <script src="{% static 'js/scrollreveal.min.js' %}"></script>
 
         <!--=============== SWIPER JS ===============-->
-        <script src="static/js/swiper-bundle.min.js"></script>
+        <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 
         <!--=============== MAIN JS ===============-->
-        <script src="static/js/main.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
 {% endblock content %}
 {% include 'pages/footer.html' %}
 </body>
