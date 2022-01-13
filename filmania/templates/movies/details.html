@@ -91,6 +91,7 @@
             <div>
                 {% for obj in comments %}
                     {% if movie.id == obj.movie.id %}
+                    <span>{{obj.user}} - {{obj.created|timesince}} ago</span>
                         <p>{{obj.body}}</p>
                     {% endif %}
                 {% endfor %}
