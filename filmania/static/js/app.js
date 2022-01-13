@@ -2,8 +2,17 @@
 function add_to_favourite(id)
 {
    
+   
 
-    
+    if( document.getElementById('fav').innerHTML == "Dodaj do ulubionych")
+    {
+        document.getElementById('fav').innerHTML = "Usuń z ulubionych";
+    }
+    else if(document.getElementById('fav').innerHTML == "Usuń z ulubionych")
+    {
+        document.getElementById('fav').innerHTML = "Dodaj do ulubionych";
+
+    }
     
 
     var movie_data ={};

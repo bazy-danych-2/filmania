@@ -66,9 +66,9 @@
                    
                   <img   src="{{movie.model_img.url}}" />
                   {% if is_fav %}
-                  <button class='fav' onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
+                  <button id='fav' onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
                   {% else %}
-                  <button class='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
+                  <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
                  {% endif %}
                     {{movie.content}}
                     {{movie.director}}
