@@ -20,6 +20,7 @@ def create_movie(request):
             instance = form.save(commit=False)
             instance.author= user
             instance.save()
+            return redirect("/movies/")
         else:
             print(form.errors)
 
