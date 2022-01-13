@@ -1,58 +1,11 @@
-{% include "pages/base.html" %}
-{% load static %}
-<!DOCTYPE html>
-<html lang="pl-PL">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'pages/base.html' %}
 
-        <!--=============== BOXICONS ===============-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-        <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
-
-        <!--=============== CSS ===============-->
-         <link rel="stylesheet" type="text/css" href="{% static 'css/styles_movies.css' %}">
-    <title>FilMania</title>
-</head>
-<body>
-<header class="header" id="header">
-            <nav class="nav container">
-                <a href="{% url 'index' %} " class="nav__logo">
-                    FilMania
-                </a>
-
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="#filmy" class="nav__link">Film</a>
-                        </li>
-
-                        <li class="nav__item">
-                            <a href="#komentarze" class="nav__link">Komentarze</a>
-                        </li>
-
-                        <a href="/accounts/login" class="button button--ghost">Logowanie</a>
-                    </ul>
-
-                    <div class="nav__close" id="nav-close">
-                        <i class='bx bx-x'></i>
-                    </div>
-
-                </div>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-grid-alt'></i>
-                </div>
-
-            </nav>
-        </header>
 {% block content %}
+{% load static %}
 
 <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="{% static 'js/app.js' %}"></script>   
 
 {% load ratings %}
@@ -75,10 +28,7 @@
                         <p>Scenariusz: {{movie.scenariusz}}</p>
                         <p>Gatunek: {{movie.gatunek}}</p>
                         <p>Produkcja: {{movie.kraj}}</p>
-
-                        <p>Premiera: {{movie.data_premiery}}</p></div><hr class="linia" />
-
-                            <p>Premiera: {{movie.data_premiery}}</p></div>
+                        <p>Premiera: {{movie.data_premiery}}</p></div>
 
 
                     {% ratings movie %}
@@ -98,7 +48,6 @@
                     <div>
                 {% for obj in comments %}
                     {% if movie.id == obj.movie.id %}
-                    <span>{{obj.user}} - {{obj.created|timesince}} ago</span>
                         <p>{{obj.body}}</p>
                     {% endif %}
                 {% endfor %}
@@ -122,6 +71,3 @@
         <!--=============== MAIN JS ===============-->
         <script src="static/js/main.js"></script>
 {% endblock content %}
-{% include 'pages/footer.html' %}
-</body>
-</html>
