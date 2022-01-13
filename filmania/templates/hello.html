@@ -1,4 +1,4 @@
-{% include 'base2.html' %}
+{% include 'pages/base.html' %}
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -17,37 +17,7 @@
     <title>FilMania</title>
 </head>
 <body>
-<header class="header" id="header">
-            <nav class="nav container">
-                <a href="{% url 'index' %} " class="nav__logo">
-                    FilMania
-                </a>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="#filmy" class="nav__link">Filmy</a>
-                        </li>
-
-                        <li class="nav__item">
-                            <a href="#next" class="nav__link">Następna strona</a>
-                        </li>
-
-                        <a href="/accounts/login" class="button button--ghost">Logowanie</a>
-                    </ul>
-
-                    <div class="nav__close" id="nav-close">
-                        <i class='bx bx-x'></i>
-                    </div>
-
-                </div>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-grid-alt'></i>
-                </div>
-
-            </nav>
-        </header>
 
 {% block content %}
 
