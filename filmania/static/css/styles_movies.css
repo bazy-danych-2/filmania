@@ -370,6 +370,21 @@ button{
   float: left;
 }
 
+.det__img{
+  margin-right: 20px;
+  float: left;
+}
+
+.linia{
+  margin-right: 60px;
+}
+
+.comment{
+  color: #4752d0;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .filser__subtitle,
 .filser__price{
   display: flex;

@@ -64,20 +64,23 @@
                 
                 <div class="filser__container container  ">
                     <div class="filser__content">
-                        <img src="{{movie.model_img.url}}" alt="" class="filser__img">
+                        <img src="{{movie.model_img.url}}" alt="" class="det__img">
                         {% if is_fav %}
                         <button id='fav' onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
                         {% else %}
                         <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
                         {% endif %}
-                        <div class="akapit">{{movie.content}} <br />
+                        <div class="akapit">{{movie.content}} <br /><hr class="linia" />
                         <p>Reżyseria: {{movie.director}}</p>
                         <p>Scenariusz: {{movie.scenariusz}}</p>
                         <p>Gatunek: {{movie.gatunek}}</p>
                         <p>Produkcja: {{movie.kraj}}</p>
+
+                        <p>Premiera: {{movie.data_premiery}}</p></div><hr class="linia" />
+
                             <p>Premiera: {{movie.data_premiery}}</p></div>
 
-                            
+
                     {% ratings movie %}
                     </div>
                 </div>
@@ -89,7 +92,7 @@
             <form action="" method='POST'>{% csrf_token %}
                 <input type='hidden' name='movie_id' value={{movie.id}}>
                     {{c_form}}
-                <button type='submit' class="button button--ghostt">comment</button>
+                <button type='submit' class="comment">comment</button>
             </form>
                 <!-- Wypisanie komentarzy do filmu -->
                     <div>
