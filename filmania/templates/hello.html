@@ -58,7 +58,7 @@
                 <h2 class="section__title">Twoje polubione filmy!</h2>
                 <div class="filser__container container grid">
                 {% for movie in movies %}
-                    <a href="details/{{movie.id}}">
+                    <a href="/movies/details/{{movie.id}}">
                     <div class="filser__content">
                         <img src="{{movie.model_img.url}}" alt="" class="filser__img">
                         <h3 class="filser__title">{{movie.title}}</h3>
