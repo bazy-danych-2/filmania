@@ -13,13 +13,15 @@ from comments.forms import CommentForm
 
 def create_movie(request):
 
-    form = MovieForm(request.POST)
+    form = MovieForm(request.POST, request.FILES)
     user = request.user
     if request.method == 'POST':
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author= user
             instance.save()
+        else:
+            print(form.errors)
 
 
     context = {

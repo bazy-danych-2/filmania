@@ -22,7 +22,7 @@ class Movie(models.Model):
     gatunek = models.CharField(blank=True, null=True, max_length=50)
     kraj = models.CharField(blank=True, null=True, max_length=50)
     data_premiery = models.DateField(null=True, blank=True)
-    ratings = GenericRelation(Rating, related_query_name='rating')
+   
 
     
     class Meta:
