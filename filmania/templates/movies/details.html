@@ -1,7 +1,9 @@
 {% include 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -48,10 +50,10 @@
             </nav>
         </header>
 {% block content %}
-{% load static %}
+
 <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
-<script src="{% static 'js/add_to_fav.js' %}"></script>   
+<script src="{% static 'js/app.js' %}"></script>   
 
 {% load ratings %}
 
@@ -63,6 +65,11 @@
                 <div>
                    
                   <img   src="{{movie.model_img.url}}" />
+                  {% if is_fav %}
+                  <button id='fav' onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
+                  {% else %}
+                  <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
+                 {% endif %}
                     {{movie.content}}
                     {{movie.director}}
                     {{movie.scenariusz}}

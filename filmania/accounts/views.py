@@ -5,6 +5,7 @@ from .forms import  CreateUserForm
 from movies.models import Movie
 from star_ratings.models import UserRating
 from .models import User_info
+from movies.views import movie_details
 
 def register(request):
     form = CreateUserForm(request.POST)
@@ -51,6 +52,29 @@ def viev_login(request):
 
 
     return  render(request,"login.html",context)
+
+def add_to_fav(request):
+
+    user = request.user
+    
+    id = request.POST['id']
+    movie = Movie.objects.get(pk = id)
+
+    user_inf = User_info.objects.get(user = user)
+
+    if movie not in user_inf.ulubione_filmy.all():
+        user_inf.ulubione_filmy.add(movie)
+        user_inf.save()
+    else:
+        user_inf.ulubione_filmy.remove(movie)
+        user_inf.save()
+
+
+
+
+    return redirect(movie_details, id =id )
+
+    
 
 def user_panel(request):
     user = request.user
