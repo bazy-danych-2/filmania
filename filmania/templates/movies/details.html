@@ -53,6 +53,7 @@
 
 <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="{% static 'js/app.js' %}"></script>   
 
 {% load ratings %}
@@ -75,7 +76,7 @@
                         <p>Scenariusz: {{movie.scenariusz}}</p>
                         <p>Gatunek: {{movie.gatunek}}</p>
                         <p>Produkcja: {{movie.kraj}}</p>
-                            <p>Premiera: {{movie.data_premiery}}</p></div>
+                        <p>Premiera: {{movie.data_premiery}}</p></div>
 
                             
                     {% ratings movie %}
