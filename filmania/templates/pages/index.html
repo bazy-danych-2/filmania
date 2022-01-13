@@ -78,15 +78,15 @@
                 <div class="filser__container container grid">
                     
                 {% for movie in movies %}
+                <a href = "/movies/details/{{movie.id}}">
                     <div class="filser__content">
                         <img src="{{movie.model_img.url}}" alt="" class="filser__img">
                         <h3 class="filser__title">{{movie.title}}</h3>
                         <span class="filser__subtitle">{{movie.short_desc}}</span>
                         <span class="filser__price"></span>
-                        <button class="button filser__button">
-                            <a href="#"><i class='bx bx-log-in-circle filser__icon'></i></a>
-                        </button>
+                        
                     </div>
+                </a>
                 {% endfor %}
 
                                     <div class="home__buttons">
