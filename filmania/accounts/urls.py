@@ -7,4 +7,5 @@ urlpatterns = [
 
     path('login/',views.viev_login),
     path('add_fav/',views.add_to_fav),
+    path('log_out', views.log_out),
 ]

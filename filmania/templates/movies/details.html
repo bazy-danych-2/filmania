@@ -1,4 +1,4 @@
-{% include 'base.html' %}
+{% include "pages/base.html" %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -98,6 +98,7 @@
                     <div>
                 {% for obj in comments %}
                     {% if movie.id == obj.movie.id %}
+                    <span>{{obj.user}} - {{obj.created|timesince}} ago</span>
                         <p>{{obj.body}}</p>
                     {% endif %}
                 {% endfor %}

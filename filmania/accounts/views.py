@@ -6,18 +6,23 @@ from movies.models import Movie
 from star_ratings.models import UserRating
 from .models import User_info
 from movies.views import movie_details
+from django.contrib import auth
 
 def register(request):
-    form = CreateUserForm(request.POST)
-    if form.is_valid():
-        email = form.cleaned_data.get("email")
+    if request.user.is_authenticated:
+        return redirect("/")
+    else:
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get("email")
 
-        user = form.save()
+            user = form.save()
 
-        user_inf = User_info(user = user)
-        user_inf.save()
+            user_inf = User_info(user = user)
+            user_inf.save()
 
-        login(request, user)
+            login(request, user)
+            return redirect("/")
 
 
 
@@ -90,5 +95,8 @@ def user_panel(request):
 
     return render(request,"hello.html", context )
 
+def log_out(request):
+    auth.logout(request)
+    return redirect("/")
 
 
