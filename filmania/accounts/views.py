@@ -78,9 +78,17 @@ def add_to_fav(request):
 
 def user_panel(request):
     user = request.user
+    user_inf = User_info.objects.get(user = user)
+
+    movies = user_inf.ulubione_filmy.all()
+    
 
 
-    return render(request,"hello.html",{} )
+    context = {
+        'movies': movies
+    }
+
+    return render(request,"hello.html", context )
 
 
 
