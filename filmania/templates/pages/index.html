@@ -73,68 +73,22 @@
 
 
             <section class="section filser" id="filmy">
-                <h2 class="section__title">Najlepsze seriale miesiąca!</h2>
+                <h2 class="section__title">Najlepsze filmy miesiąca!</h2>
 
                 <div class="filser__container container grid">
+                    
+                {% for movie in movies %}
                     <div class="filser__content">
-                        <img src="static/img/spider.jpg" alt="" class="filser__img">
-                        <h3 class="filser__title">Spiderman</h3>
-                        <span class="filser__subtitle">Film o człowieku pająku</span>
+                        <img src="{{movie.model_img.url}}" alt="" class="filser__img">
+                        <h3 class="filser__title">{{movie.title}}</h3>
+                        <span class="filser__subtitle">{{movie.short_desc}}</span>
                         <span class="filser__price"></span>
                         <button class="button filser__button">
                             <a href="#"><i class='bx bx-log-in-circle filser__icon'></i></a>
                         </button>
                     </div>
+                {% endfor %}
 
-                    <div class="filser__content">
-                        <img src="static/img/batman.jpg" alt="" class="filser__img">
-                        <h3 class="filser__title">Mroczny Rycerz</h3>
-                        <span class="filser__subtitle">Film o batmanie</span>
-                        <span class="filser__price"></span>
-                        <button class="button filser__button">
-                            <i class='bx bx-log-in-circle filser__icon'></i>
-                        </button>
-                    </div>
-
-                    <div class="filser__content">
-                        <img src="static/img/batmanfor.jpg" alt="" class="filser__img">
-                        <h3 class="filser__title">Barman Forever</h3>
-                        <span class="filser__subtitle">Stara część z pierwszej trylogii</span>
-                        <span class="filser__price"></span>
-                        <button class="button filser__button">
-                            <i class='bx bx-log-in-circle filser__icon'></i>
-                        </button>
-                    </div>
-
-                    <div class="filser__content">
-                        <img src="static/img/batman.jpg" alt="" class="filser__img">
-                        <h3 class="filser__title">Mroczny Rycerz</h3>
-                        <span class="filser__subtitle">Film o batmanie</span>
-                        <span class="filser__price"></span>
-                        <button class="button filser__button">
-                            <i class='bx bx-log-in-circle filser__icon'></i>
-                        </button>
-                    </div>
-
-                    <div class="filser__content">
-                        <img src="static/img/batman.jpg" alt="" class="filser__img">
-                        <h3 class="filser__title">Mroczny Rycerz</h3>
-                        <span class="filser__subtitle">Film o batmanie</span>
-                        <span class="filser__price"></span>
-                        <button class="button filser__button">
-                            <i class='bx bx-log-in-circle filser__icon'></i>
-                        </button>
-                    </div>
-
-                    <div class="filser__content">
-                        <img src="static/img/batman.jpg" alt="" class="filser__img">
-                        <h3 class="filser__title">Mroczny Rycerz</h3>
-                        <span class="filser__subtitle">Film o batmanie</span>
-                        <span class="filser__price"></span>
-                        <button class="button filser__button">
-                            <i class='bx bx-log-in-circle filser__icon'></i>
-                        </button>
-                    </div>
                                     <div class="home__buttons">
                                         <a href="/movies/" class="button--link button--flex">Więcej seriali <i class='bx bx-right-arrow-alt button__icon'></i></a>
                                     </div>
