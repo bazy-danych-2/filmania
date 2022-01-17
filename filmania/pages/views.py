@@ -7,6 +7,7 @@ from movies.models import Movie
 class Index(View):
     def get(self, request, *args, **kwargs):
 
+        #wybieranie 6 najlepiej ocenianych filmów
         movies = Movie.objects.filter(ratings__isnull=False).order_by('ratings__average')[:6]
 
        
