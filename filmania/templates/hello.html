@@ -5,7 +5,7 @@
 {% load static %}
     <main class="main">
          <section class="section filser" id="filmy">
-            <h1> Witaj {{request.user.username}}</h1>
+            <h1 class="section__title"> Witaj {{request.user.username}}</h1>
                 <h2 class="section__title">Twoje polubione filmy!</h2>
                 <div class="filser__container container grid">
                 {% for movie in movies %}

@@ -348,6 +348,7 @@ button{
 }
 
 /*=============== Filmy Seriale ===============*/
+
 .filser__container{
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -360,6 +361,31 @@ button{
   border-radius: 1rem;
   padding: 1.5rem 0 1rem 0;
   text-align: center;
+  overflow: hidden;
+}
+
+.det__img{
+  display: flex;
+  margin-right: 20px;
+  float: left;
+}
+
+.linia{
+  margin-right: 60px;
+}
+
+.comment{
+  color: #4752d0;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filser__content2{
+  position: relative;
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 1.5rem 0 1rem 0;
+  text-align: left;
   overflow: hidden;
 }
 
@@ -407,6 +433,14 @@ button{
   right: 0;
 }
 
+.filser__content2:hover .filser__img{
+  transform: translateY(-.5rem);
+}
+
+.filser__content2:hover .filser__button{
+  right: 0;
+}
+
 /*=============== NEWSLETTER ===============*/
 .new__container{
   padding-top: 1rem;
@@ -425,6 +459,16 @@ button{
   padding: 2rem 0 1.5rem 0;
   border-radius: .75rem;
   text-align: center;
+  overflow: hidden;
+}
+
+.new__content2{
+  position: relative;
+  background: var(--container-color);
+  width: 242px;
+  padding: 2rem 0 1.5rem 0;
+  border-radius: .75rem;
+  text-align: left;
   overflow: hidden;
 }
 
