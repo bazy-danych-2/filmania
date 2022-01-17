@@ -2,12 +2,34 @@
 
 {%block content%}
 
-<br><br><br><br><br>
-<form method="POST" enctype="multipart/form-data">
-{% csrf_token %}
+    <main class="main">
+            <section class="section newsletter">
+                <div class="newsletter__container container">
+                <div class="filser__content2">
+                    <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
 
-{{form.as_p}}
+                    {{form.as_p}}
 
-<input type="submit" value="Stwrórz"/>
-</form>
+                    <input type="submit" value="Stwórz"/>
+                    </form>
+                </div>
+                </div>
+            </section>
+    </main>
+
+    <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+        </a>
+
+        {% load static %}
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="{% static 'js/scrollreveal.min.js' %}"></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}

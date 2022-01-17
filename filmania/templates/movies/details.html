@@ -23,12 +23,12 @@
                         {% else %}
                         <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
                         {% endif %}
-                        <div class="akapit">{{movie.content}} <br /><hr class="linia" />
+                        {{movie.content}}<hr class="linia" />
                         <p>Reżyseria: {{movie.director}}</p>
                         <p>Scenariusz: {{movie.scenariusz}}</p>
                         <p>Gatunek: {{movie.gatunek}}</p>
                         <p>Produkcja: {{movie.kraj}}</p>
-                        <p>Premiera: {{movie.data_premiery}}</p></div>
+                        <p>Premiera: {{movie.data_premiery}}</p>
 
 
                     {% ratings movie %}
@@ -63,12 +63,13 @@
             <i class='bx bx-up-arrow-alt scrollup__icon'></i>
         </a>
 
+        {% load static %}
         <!--=============== SCROLL REVEAL ===============-->
-        <script src="static/js/scrollreveal.min.js"></script>
+        <script src="{% static 'js/scrollreveal.min.js' %}"></script>
 
         <!--=============== SWIPER JS ===============-->
-        <script src="static/js/swiper-bundle.min.js"></script>
+        <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 
         <!--=============== MAIN JS ===============-->
-        <script src="static/js/main.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
 {% endblock content %}
