@@ -37,14 +37,15 @@ def update_movie(request,id):
     user = request.user
     movie = Movie.objects.get(pk=id)
     
-
+    form = UpdateMovieForm( request.POST or None, request.FILES or None ,instance=movie)
     if movie.author == user or user.is_superuser == True:
-        form = UpdateMovieForm( request.POST or None, request.FILES or None ,instance=movie)
+        
 
         if request.method == 'POST':
                if form.is_valid():
                      form.save()
-    
+    else:
+        return redirect(show_all_movies)
         
         
 
@@ -70,12 +71,14 @@ def movie_details(request, id):
     comments = Comment.objects.all()
     c_form = CommentForm(request.POST or None)
     movie = Movie.objects.get(pk=id)
-    user = request.user
-    user_inf = User_info.objects.get(user = user)
     is_fav = False
-    
-    if movie not in user_inf.ulubione_filmy.all():
-        is_fav = True
+    user = request.user
+    if request.user.is_authenticated:
+         user_inf = User_info.objects.get(user = user)
+        
+
+         if movie not in user_inf.ulubione_filmy.all():
+                 is_fav = True
 
     
 
