@@ -44,12 +44,14 @@
                     {{c_form}}
                 <button type='submit' class="comment">comment</button>
             </form>
+            <br />
                 <!-- Wypisanie komentarzy do filmu -->
                     <div>
                 {% for obj in comments %}
                     {% if movie.id == obj.movie.id %}
                         <span>{{obj.user}} - {{obj.created|timesince}} ago</span>
                         <p>{{obj.body}}</p>
+                        <hr class="linia_coment" />
                     {% endif %}
                 {% endfor %}
             </div>

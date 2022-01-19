@@ -359,7 +359,7 @@ button{
   position: relative;
   background: var(--container-color);
   border-radius: 1rem;
-  padding: 1.5rem 0 1rem 0;
+  padding: 1.5rem 1.5rem 1rem 0;
   text-align: center;
   overflow: hidden;
 }
@@ -374,6 +374,13 @@ button{
   margin-right: 60px;
 }
 
+.linia_coment{
+  margin-right: 60px;
+}
+
+.kom{
+  font-size: 12px;
+}
 .comment{
   color: #4752d0;
   border-radius: 20px;
@@ -385,7 +392,7 @@ button{
   background: var(--container-color);
   border-radius: 1rem;
   padding: 1.5rem 0 1rem 0;
-  text-align: left;
+  text-align: center;
   overflow: hidden;
 }
 
@@ -860,7 +867,7 @@ button{
   padding: 1.5rem 0 1rem 2rem;
   text-align: left;
   overflow: hidden;
-  margin: 0px 10rem 3rem 10rem;
+  margin: 0 10rem 3rem 10rem;
 }
 
 .m_filser__img{
