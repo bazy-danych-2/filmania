@@ -1,0 +1,32 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+
+<main class="main">
+    <section class="section newsletter">
+        <div class="newsletter__container container">
+        <div class="filser__content2">
+<form action="", method="post">{% csrf_token %}
+    <h1>Do you want to delete {{obj.name}}?</h1>
+    
+    <input type="submit" value="yes"/>
+    </form>
+
+</main>
+
+
+     <!--=============== SCROLL UP ===============-->
+     <a href="#" class="scrollup" id="scroll-up">
+        <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+    </a>
+
+    {% load static %}
+    <!--=============== SCROLL REVEAL ===============-->
+    <script src="{% static 'js/scrollreveal.min.js' %}"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock content %}
