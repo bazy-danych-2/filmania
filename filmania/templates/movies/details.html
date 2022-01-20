@@ -36,6 +36,7 @@
 
                     {% if movie.author == user or user.is_superuser %}
                         <p><a href="../../update/{{movie.id}}"><button>Update</button></a></p>
+                        <p><a href="../../delete/{{movie.id}}"><button>Delete</button></a></p>
                     {% endif %}
 
                     </div>
