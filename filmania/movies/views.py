@@ -19,6 +19,7 @@ def create_movie(request):
     form = MovieForm(request.POST, request.FILES)
     user = request.user
     user_info = User_info(user = user)
+ 
     if user_info.is_author or user.is_superuser:
       if request.method == 'POST':
         if form.is_valid():
