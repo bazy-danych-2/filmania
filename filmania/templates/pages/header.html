@@ -26,9 +26,11 @@
                                     {{request.user.username}}
                                 </a>
                             </li>
+                            {% if  user.user_info.is_author %}
                             <li class="nav__item">
                                 <a href="/movies/create">Dodaj film</a>
                             </li>
+                            {% endif %}
                             <li class='nav__item'>
                                 <a href="/accounts/log_out">Log out</a>
                             </li>
