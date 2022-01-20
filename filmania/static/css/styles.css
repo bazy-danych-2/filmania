@@ -89,6 +89,11 @@ ul{
 a{
   text-decoration: none;
 }
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
 
 img{
   max-width: 100%;
