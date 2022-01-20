@@ -68,8 +68,7 @@ def add_to_fav(request):
     movie = Movie.objects.get(pk = id)
 
     user_inf = User_info.objects.get(user = user)
-    if user_inf.author:
-        print("coś")
+
 
     if movie not in user_inf.ulubione_filmy.all():
         user_inf.ulubione_filmy.add(movie)
@@ -90,6 +89,7 @@ def user_panel(request):
     user_inf = User_info.objects.get(user = user)
 
     movies = user_inf.ulubione_filmy.all()
+    print(movies)
     
     your_movies = Movie.objects.filter(author = user)
 
