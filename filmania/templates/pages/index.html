@@ -79,7 +79,7 @@
                     
                 {% for movie in movies %}
                 <a href = "/movies/details/{{movie.id}}">
-                    <div class="filser__content2">
+                    <div class="filser__content">
                         <img src="{{movie.model_img.url}}" alt="" class="filser__img">
                         <h3 class="filser__title">{{movie.title}}</h3>
                         <span class="filser__subtitle">{{movie.short_desc}}</span>
