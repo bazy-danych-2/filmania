@@ -26,7 +26,7 @@
                                     {{request.user.username}}
                                 </a>
                             </li>
-                            {% if  user.user_info.is_author %}
+                            {% if  user.user_info.is_author or user.is_superuser %}
                             <li class="nav__item">
                                 <a href="/movies/create">Dodaj film</a>
                             </li>

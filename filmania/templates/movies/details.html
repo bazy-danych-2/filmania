@@ -18,11 +18,14 @@
                 <div class="filser__container container  ">
                     <div class="filser__content2">
                         <img src="{{movie.model_img.url}}" alt="" class="det__img">
+                        {% if user.is_authenticated %}
                         {% if is_fav %}
                         <button id='fav' onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
                         {% else %}
                         <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
                         {% endif %}
+                        {% endif %}
+                        
                         <br>
                         {{movie.content}}<hr class="linia" />
                         <p>Reżyseria: {{movie.director}}</p>
@@ -45,6 +48,7 @@
             </section>
 
             </section>
+            {% if user.is_authenticated %}
             <section class="home container" id="komentarze">
             <!-- Dodawanie komentarzy -->
             <form action="" method='POST'>{% csrf_token %}
@@ -65,6 +69,7 @@
             </div>
                 </div>
          </section>
+         {% endif %}
 
 
     </main>
