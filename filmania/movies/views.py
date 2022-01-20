@@ -100,3 +100,25 @@ def movie_details(request, id):
 
 
     return render(request,"movies/details.html",context)
+
+def delete_movie(request, id):
+
+    user = request.user
+    movie = Movie.objects.get(pk=id)
+
+    if movie.author == user or user.is_superuser == True:
+        
+
+        if request.method == 'POST':
+            print("dupa")
+              
+    else:
+
+        return redirect(show_all_movies)
+        
+
+    context={
+
+    }
+
+    return render(request,"movies/details.html",context)
