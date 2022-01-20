@@ -121,4 +121,4 @@ def delete_movie(request, id):
 
     }
 
-    return render(request,"movies/details.html",context)
+    return render(request,"movies/delete.html",context)

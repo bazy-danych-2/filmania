@@ -34,7 +34,7 @@
 
                     {% ratings movie %}
 
-                    {% if movie.author == user %}
+                    {% if movie.author == user or user.is_superuser %}
                         <p><a href="../../update/{{movie.id}}"><button>Update</button></a></p>
                     {% endif %}
 
