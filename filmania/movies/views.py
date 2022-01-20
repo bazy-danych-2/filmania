@@ -143,7 +143,8 @@ def delete_movie(request, id):
         
 
         if request.method == 'POST':
-            print("dupa")
+           movie.delete()
+           return redirect(show_all_movies)
               
     else:
 
