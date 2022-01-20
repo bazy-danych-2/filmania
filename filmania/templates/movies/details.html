@@ -23,6 +23,7 @@
                         {% else %}
                         <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
                         {% endif %}
+                        <br>
                         {{movie.content}}<hr class="linia" />
                         <p>Reżyseria: {{movie.director}}</p>
                         <p>Scenariusz: {{movie.scenariusz}}</p>
@@ -32,8 +33,14 @@
 
 
                     {% ratings movie %}
+
+                    {% if movie.author == user %}
+                        <p><a href="../../update/{{movie.id}}"><button>Update</button></a></p>
+                    {% endif %}
+
                     </div>
                 </div>
+                
             </section>
 
             </section>

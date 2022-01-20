@@ -44,6 +44,7 @@ def update_movie(request,id):
         if request.method == 'POST':
                if form.is_valid():
                      form.save()
+                     return redirect("/movies/")
     else:
         return redirect(show_all_movies)
         
