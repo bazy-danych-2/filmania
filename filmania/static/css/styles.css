@@ -383,6 +383,16 @@ button{
   overflow: hidden;
 }
 
+.filser__content3{
+  height: 300px;
+  position: relative;
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
 .det__img{
   display: flex;
   margin-right: 20px;
@@ -417,6 +427,8 @@ button{
 
 .filser__img{
   width: 90px;
+  height: 150px;
+  object-fit: cover;
   transition: .3s;
 }
 
