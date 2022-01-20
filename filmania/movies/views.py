@@ -1,5 +1,6 @@
 from django.forms.fields import NullBooleanField
 from django.shortcuts import redirect, render
+from django.contrib.auth.decorators import login_required
 
 from accounts.models import User_info
 
@@ -10,12 +11,14 @@ from comments.models import Comment, Like
 from comments.forms import CommentForm
 
 # Create your views here.
-
+@login_required(login_url='/accounts/login/')
 def create_movie(request):
 
     form = MovieForm(request.POST, request.FILES)
     user = request.user
-    if request.method == 'POST':
+    user_info = User_info(user = user)
+    if user_info.is_author or user.is_superuser:
+      if request.method == 'POST':
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author= user
@@ -23,6 +26,8 @@ def create_movie(request):
             return redirect("/movies/")
         else:
             print(form.errors)
+    else:
+        return redirect(show_all_movies)
 
 
     context = {
@@ -31,7 +36,7 @@ def create_movie(request):
     }
 
     return render(request,"movies/create.html",context)
-
+@login_required(login_url='/accounts/login/')
 def update_movie(request,id):
 
     user = request.user
@@ -101,6 +106,7 @@ def movie_details(request, id):
 
     return render(request,"movies/details.html",context)
 
+@login_required(login_url='/accounts/login/')
 def delete_movie(request, id):
 
     user = request.user

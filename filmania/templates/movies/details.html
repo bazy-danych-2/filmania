@@ -29,9 +29,9 @@
                         <p>Premiera: {{movie.data_premiery}}</p>
                     {% if user.is_authenticated %}
                         {% if is_fav %}
-                        <button id='fav'  onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
+                        <button id='fav' class="button button--ghost2" onclick="add_to_favourite({{movie.id}})" >Dodaj do ulubionych</button>
                         {% else %}
-                        <button id='fav' onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
+                        <button id='fav' class="button button--ghost2" onclick="add_to_favourite({{movie.id}})" >Usuń z ulubionych</button>
                         {% endif %}
                         {% endif %}
                     <br />
@@ -40,8 +40,8 @@
                     {% ratings movie %}
 
                     {% if movie.author == user or user.is_superuser %}
-                        <p><a href="../../update/{{movie.id}}"><button>Update</button></a></p>
-                        <p><a href="../../delete/{{movie.id}}"><button>Delete</button></a></p>
+                        <p><a href="../../update/{{movie.id}}"><button class="button button--ghost2">Update</button></a></p>
+                        <p><a href="../../delete/{{movie.id}}"><button class="button button--ghost2">Delete</button></a></p>
                     {% endif %}
 
                     </div>

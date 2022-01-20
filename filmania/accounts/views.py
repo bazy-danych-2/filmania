@@ -7,6 +7,7 @@ from star_ratings.models import UserRating
 from .models import User_info
 from movies.views import movie_details
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.user.is_authenticated:
@@ -60,6 +61,7 @@ def viev_login(request):
 
     return  render(request,"login.html",context)
 
+@login_required(login_url='/accounts/login/')
 def add_to_fav(request):
 
     user = request.user
@@ -83,7 +85,7 @@ def add_to_fav(request):
     return redirect(movie_details, id =id )
 
     
-
+@login_required(login_url='/accounts/login/')
 def user_panel(request):
     user = request.user
     user_inf = User_info.objects.get(user = user)
@@ -100,7 +102,7 @@ def user_panel(request):
     }
 
     return render(request,"hello.html", context )
-
+@login_required(login_url='/accounts/login/')
 def log_out(request):
     auth.logout(request)
     return redirect("/")
