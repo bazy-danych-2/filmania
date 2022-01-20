@@ -19,7 +19,45 @@
                 {% endfor %}
 
                 </div>
+                
+                
             </section>
+            {% if movie.author == user or user.is_superuser %}
+            <section class="section filser" id="filmy">
+                <h2 class="section__title">Twoje recenzje!</h2>
+                <div class="filser__container container ">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col"> usuń</th>
+                        <th scope="col">edytuj</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                  
+                  {% for item in items %}
+                  
+                  <tr>
+                    <th scope="row">{{item.id}}</th>
+                    <td><a href="/movies/details/{{item.id}}">{{item.title}}</a></td>
+                    <td><p><a href="/movies/update/{{item.id}}"><button>Update</button></a></p>
+                        
+                    <td><p><a href="/movies/delete/{{item.id}}"><button>Delete</button></a></p></td></td>
+                    
+                  </tr>
+                  
+                  {% endfor %}
+                  
+                  
+                     
+                    </tbody>
+                  </table>
+                </div>
+            </section>
+            {% endif %}
     </main>
      <!--=============== SCROLL UP ===============-->
         <a href="#" class="scrollup" id="scroll-up">
