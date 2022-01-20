@@ -1,8 +1,10 @@
+from audioop import reverse
 from django.forms.fields import NullBooleanField
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 
 from accounts.models import User_info
+from django.http import HttpResponseRedirect
 
 from .models import Movie
 from django.contrib.auth.models import User
@@ -95,7 +97,7 @@ def movie_details(request, id):
         instance.save()
         c_form = CommentForm()
         
-        
+    
     context={
         'movie': movie,
         'c_form': c_form,
@@ -107,6 +109,31 @@ def movie_details(request, id):
     return render(request,"movies/details.html",context)
 
 @login_required(login_url='/accounts/login/')
+def delete_comment(request, id):
+
+    author = request.user
+    comment = Comment.objects.get(pk=id)
+    
+    if comment.user == author or author.is_superuser == True:
+        
+
+        if request.method == 'POST':
+            print(request.POST)
+            comment.delete()
+            return redirect(show_all_movies)
+              
+    else:
+
+        return redirect(show_all_movies)
+        
+
+    context={
+
+    }
+
+    return render(request,"movies/delete_com.html",context)
+
+
 def delete_movie(request, id):
 
     user = request.user
@@ -116,8 +143,7 @@ def delete_movie(request, id):
         
 
         if request.method == 'POST':
-            movie.delete()
-            return redirect(show_all_movies)   
+            print("dupa")
               
     else:
 

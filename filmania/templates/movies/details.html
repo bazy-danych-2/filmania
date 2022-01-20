@@ -65,6 +65,9 @@
                     {% if movie.id == obj.movie.id %}
                         <span>{{obj.user}} - {{obj.created|timesince}} ago</span>
                         <p>{{obj.body}}</p>
+                        {% if obj.user == user or user.is_superuser == True %}
+                            <a href="../../delete_com/{{obj.id}}">Usun</a>
+                        {% endif %}
                         <hr class="linia_coment" />
                     {% endif %}
                 {% endfor %}
