@@ -18,19 +18,18 @@ def create_movie(request):
 
     form = MovieForm(request.POST, request.FILES)
     user = request.user
-    user_info = User_info(user = user)
+    user_info = User_info(user=user)
  
     if user_info.is_author or user.is_superuser:
-      if request.method == 'POST':
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.author= user
-            instance.save()
-            return redirect("/movies/")
-        else:
-            print(form.errors)
-    else:
-        return redirect(show_all_movies)
+        if request.method == 'POST':
+            if form.is_valid():
+                instance = form.save(commit=False)
+                instance.author= user
+                instance.save()
+                return redirect("/movies/")
+            else:
+                print(form.errors)
+
 
 
     context = {
