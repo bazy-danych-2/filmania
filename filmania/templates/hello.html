@@ -22,7 +22,7 @@
                 
                 
             </section>
-            {% if movie.author == user or user.is_superuser %}
+            {% if user.user_info.is_author or user.is_superuser %}
             <section class="section filser" id="filmy">
                 <h2 class="section__title">Twoje recenzje!</h2>
                 <div class="filser__container container ">
